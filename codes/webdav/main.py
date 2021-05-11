@@ -6,7 +6,11 @@ client = wc.Client(option.options)
 # client = Client(option.options)
 print(client)
 print(client.list(''))
-client.pull(remote_directory='플레이리스트', local_directory='./temp')
+for i in client.list():
+    if i == 'playlist/':
+        continue
+    print(i)
+    client.download(i, './temp/'+i)
 
 # res1.write_async(local_path="~/Downloads/file1", callback)
 
