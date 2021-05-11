@@ -1,7 +1,9 @@
 from plexapi.server import PlexServer
+import codes.env as env
 
-baseurl = 'http://jbchhn.synology.me:32500'
-token = '8fB6XveqmX6UN1Lrd8Rz'
+
+baseurl = env.URL
+token = env.TOKEN
 plex = PlexServer(baseurl, token)
 
 movies = plex.library.sections()
