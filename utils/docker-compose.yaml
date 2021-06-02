@@ -1,0 +1,23 @@
+version: "3"
+services:
+  webdav-client:
+    image: efrecon/webdav-client
+    environment: 
+      WEBDRIVE_USERNAME: "hnmedia"
+      WEBDRIVE_PASSWORD: "jbch0691!"
+      WEBDRIVE_URL: "http://jbchhn.synology.me:5005"
+      DAVFS2_ASK_AUTH: 0
+    devices: 
+      - "/dev/fuse"
+    cap_add: 
+      - SYS_ADMIN
+    security_opt: 
+      - apparmor:unconfined
+    volumes: 
+      - /mnt/tmp:/mnt/webdriver:rshared
+      # - type: bind
+      # - source: /mnt/tmp
+      # - target: /mnt/webdriver
+      # - bind:
+      #     propagation: "rshared"
+    restart: always
